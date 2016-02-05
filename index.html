@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app = "dealApp">
 <head>
 	<title></title>
 <script src="bower_components/angular/angular.js"></script>
@@ -7,11 +7,20 @@
 <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
 <!-- <script src="src/js/jquery-2.2.0.min.js"></script> -->
 </head>
-<body>
+<body ng-controller = "MainCtrl as ctrl">
 
-	<h1>Testing</h1>
+	<h1>Testing Card Dealer</h1>
+
+	<button ng-click = "ctrl.shuffle()">
+		Shuffle deck </button>
+
+	<button ng-click = "ctrl.display()">
+		Deal one card	</button>
+
+	<h3 ng-bind = "ctrl.show"></h3>
 
 <script src="bower_components/jQuery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="src/js/deal.js"></script>
+<script type="text/javascript" src="src/js/dealerApp.js"></script>
 </body>
 </html>
