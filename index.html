@@ -12,12 +12,19 @@
 	<h1>Testing Card Dealer</h1>
 
 	<button ng-click = "ctrl.shuffle()">
-		Shuffle deck </button>
+		Shuffle Deck </button>
 
 	<button ng-click = "ctrl.display()">
-		Deal one card	</button>
+		Deal Card	</button> </br>
 
-	<h3 ng-bind = "ctrl.show"></h3>
+	<!-- <input type = "text" -->
+				<!-- ng-model = "numCards" -->
+				<!-- placeholder = "Enter number of cards to deal"> -->
+	<button ng-click = "ctrl.dealHand()">
+		Deal Hand</button> </br>
+
+
+	<h3 ng-bind = "ctrl.showCards"></h3>
 
 <script src="bower_components/jQuery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="src/js/deal.js"></script>
