@@ -1,19 +1,34 @@
-//array of 52 randomly delt cards
-var deck = [];
+var deck = buildDeck();
 
 // card suits
-var buildDeck = function() {
+function buildDeck(){
+	var newDeck = [];
+
 	suit("H");
 	suit("D");
 	suit("S");
 	suit("C");
 
-	//build deck
+	//build deck array
 	function suit(type) {
 		for (var i = 2; i <= 14; i++) {
-			deck.push(new card(i,type))
+			newDeck.push(new card(i,type))
 		}
  	}
+	return newDeck;
+};
+
+//Shuffle deck
+function shuffle(deck) {
+
+	var array = [];
+	while (0 < deck.length){
+		var randomNum = Math.round(Math.random()*(deck.length-1));
+		var card = deck[randomNum];
+		deck.splice(randomNum,1);
+		array.push(card);
+	}
+	return array;
 };
 
 //build card object
