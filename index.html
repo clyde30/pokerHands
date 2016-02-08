@@ -14,7 +14,7 @@
 	<button ng-click = "ctrl.shuffle()">
 		Shuffle Deck </button>
 
-	<button ng-click = "ctrl.display()">
+	<button ng-click = "ctrl.dealOne()">
 		Deal Card	</button> </br>
 
 	<!-- <input type = "text" -->
@@ -23,10 +23,12 @@
 	<button ng-click = "ctrl.dealHand()">
 		Deal Hand</button> </br>
 
-
 	<h3 ng-bind = "ctrl.showCards"></h3>
 
+	<img ng-src = "src/images/cards/{{ctrl.image}}">
+
 <script src="bower_components/jQuery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="src/js/cardImage.js"></script>
 <script type="text/javascript" src="src/js/deal.js"></script>
 <script type="text/javascript" src="src/js/dealerApp.js"></script>
 </body>

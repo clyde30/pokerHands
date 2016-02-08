@@ -2,22 +2,22 @@ angular.module('dealApp', [])
 
   .controller('MainCtrl', [function() {
     var self = this;
-    self.display = function() {
+
+    self.dealOne = function() {
       var card = dealCard();
+      self.image = pickCardImage(card);
       self.showCards = card.buildCard;
       console.log(card);
     };
 
     self.dealHand = function () {
       // var numCards = 5;
-      var hand = dealHand(5);
-      self.showCards = hand;
+      hand = dealHand(5);
+      self.showCards = hand.buildCard;
       console.log(hand);
     };
 
     self.shuffle = function () {
-      buildDeck();
-
-
+      shuffle();
     };
   }]);
