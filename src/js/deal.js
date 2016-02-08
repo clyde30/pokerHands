@@ -1,6 +1,10 @@
-var deck = buildDeck();
+var deck = shuffle();
 
-// card suits
+function shuffle() {
+	return shuffleDeck(buildDeck());
+}
+
+//create new unshuffled deck
 function buildDeck(){
 	var newDeck = [];
 
@@ -14,12 +18,12 @@ function buildDeck(){
 		for (var i = 2; i <= 14; i++) {
 			newDeck.push(new card(i,type))
 		}
- 	}
+	 }
 	return newDeck;
 };
 
 //Shuffle deck
-function shuffle(deck) {
+function shuffleDeck(deck) {
 
 	var array = [];
 	while (0 < deck.length){
@@ -40,9 +44,7 @@ function card(number, suit) {
 
 //deal one random card and remove it from deck array
 function dealCard() {
-	var deal = Math.round(Math.random()*(deck.length-1));
-	var card = deck.splice(deal,1);
-	card = card[0];
+	var card = deck.shift();
 
 	return card;
 };
