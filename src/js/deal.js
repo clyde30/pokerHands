@@ -1,4 +1,4 @@
-var deck = shuffle();
+var deck;
 
 function shuffle() {
 	return shuffleDeck(buildDeck());
@@ -6,6 +6,7 @@ function shuffle() {
 
 //create new unshuffled deck
 function buildDeck(){
+	deck = [];
 	var newDeck = [];
 
 	suit("H");
@@ -23,16 +24,16 @@ function buildDeck(){
 };
 
 //Shuffle deck
-function shuffleDeck(deck) {
+function shuffleDeck(newDeck) {
 
-	var array = [];
-	while (0 < deck.length){
-		var randomNum = Math.round(Math.random()*(deck.length-1));
-		var card = deck[randomNum];
-		deck.splice(randomNum,1);
-		array.push(card);
+	// var array = [];
+	while (0 < newDeck.length){
+		var randomNum = Math.round(Math.random()*(newDeck.length-1));
+		var card = newDeck[randomNum];
+		newDeck.splice(randomNum,1);
+		deck.push(card);
 	}
-	return array;
+	// return array;
 };
 
 //build card object
