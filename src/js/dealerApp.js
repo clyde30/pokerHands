@@ -6,14 +6,13 @@ angular.module('dealApp', [])
     self.dealOne = function() {
       var card = dealCard();
       self.image = pickCardImage(card);
-      self.showCards = card.buildCard;
+      self.showOneCard = card.buildCard;
       console.log(card);
     };
 
     self.dealHand = function () {
-      // var numCards = 5;
       hand = dealHand(5);
-      self.showCards = hand.buildCard;
+      self.showHand = hand.buildCard;
       console.log(hand);
     };
 
