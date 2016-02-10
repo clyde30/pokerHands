@@ -11,10 +11,8 @@ angular.module('dealApp', [])
     };
 
     self.dealHand = function () {
-      hand = dealHand(5);
-      self.showHand = hand.buildCard;
-      self.image = pickCardImage(card);
-      console.log(hand);
+      self.hand = dealHand(5);
+      console.log(self.hand);
     };
 
     self.shuffle = function () {

@@ -17,19 +17,20 @@
 	<button ng-click = "ctrl.dealOne()">
 		Deal Card	</button> </br>
 
-	<!-- <input type = "text" -->
-				<!-- ng-model = "numCards" -->
-				<!-- placeholder = "Enter number of cards to deal"> -->
 	<button ng-click = "ctrl.dealHand()">
 		Deal Hand</button> </br>
 
 	<h3 ng-bind = "ctrl.showOneCard"></h3>
 
+	<div>
 	<img ng-src = "src/images/cards/{{ctrl.image}}">
+</div>
 
-	<div ng-repeat="card in ctrl.hand">
-		<img ng-src = "src/images/cards/{{ctrl.image}}">
-	</div>
+<div> 
+	<span ng-repeat = "card in ctrl.hand">
+		<img ng-src = "src/images/cards/{{card.image}}">
+	</span>
+</div>
 
 <script src="bower_components/jQuery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="src/js/cardImage.js"></script>
