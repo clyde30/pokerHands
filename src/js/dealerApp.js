@@ -5,7 +5,7 @@ angular.module('dealApp', [])
 
     self.dealOne = function() {
       var card = dealCard();
-      self.image = pickCardImage(card);
+      self.image = card.image;
       self.showOneCard = card.buildCard;
       console.log(card);
     };
@@ -13,6 +13,7 @@ angular.module('dealApp', [])
     self.dealHand = function () {
       hand = dealHand(5);
       self.showHand = hand.buildCard;
+      self.image = pickCardImage(card);
       console.log(hand);
     };
 

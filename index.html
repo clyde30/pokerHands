@@ -27,6 +27,10 @@
 
 	<img ng-src = "src/images/cards/{{ctrl.image}}">
 
+	<div ng-repeat="card in ctrl.hand">
+		<img ng-src = "src/images/cards/{{ctrl.image}}">
+	</div>
+
 <script src="bower_components/jQuery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="src/js/cardImage.js"></script>
 <script type="text/javascript" src="src/js/deal.js"></script>

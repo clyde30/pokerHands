@@ -1,18 +1,15 @@
-function pickCardImage(card) {
-  var suit
-  var num = card.number;
-  
-  if (card.suit === "H") {suit = "hearts"};
-  if (card.suit === "D") {suit = "diamonds"};
-  if (card.suit === "S") {suit = "spades"};
-  if (card.suit === "C") {suit = "clubs"};
+function pickCardImage(number, suit) {
 
-  var faceCard = "";
-  if (card.number === 11) {num = "jack"};
-  if (card.number === 12) {num = "queen"};
-  if (card.number === 13) {num = "king"};
-  if (card.number === 14) {num = "ace"};
+  if (suit === "H") {suit = "hearts"};
+  if (suit === "D") {suit = "diamonds"};
+  if (suit === "S") {suit = "spades"};
+  if (suit === "C") {suit = "clubs"};
+
+  if (number === 11) {number = "jack"};
+  if (number === 12) {number = "queen"};
+  if (number === 13) {number = "king"};
+  if (number === 14) {number = "ace"};
 
 
-  return num + "_of_"+suit+".jpg";
+  return number + "_of_"+suit+".jpg";
 }

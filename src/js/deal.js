@@ -41,6 +41,7 @@ function card(number,suit) {
 	this.number = number;
 	this.suit = suit;
 	this.buildCard = number + suit;
+	this.image = pickCardImage(number, suit);
 };
 
 //deal one random card and remove it from deck array
