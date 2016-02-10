@@ -19,7 +19,7 @@ function buildDeck(){
 		for (var i = 2; i <= 14; i++) {
 			newDeck.push(new card(i,type))
 		}
-	 }
+	}
 	return newDeck;
 };
 
@@ -37,7 +37,7 @@ function shuffleDeck(newDeck) {
 };
 
 //build card object
-function card(number, suit) {
+function card(number,suit) {
 	this.number = number;
 	this.suit = suit;
 	this.buildCard = number + suit;
