@@ -56,5 +56,8 @@ function dealHand(numCards) {
 	for (var i = 0; i < numCards; i++) {
 		hand.push(dealCard());
 	}
+	hand.sort(function (a,b){
+		return a.number - b.number
+	})
 	return hand;
 };
