@@ -3,6 +3,8 @@
 <head>
 	<title></title>
 <script src="bower_components/angular/angular.js"></script>
+<link rel="stylesheet/less" type="text/css" href="src/css/style.less">
+<script src="bower_components/less/dist/less.min.js" type="text/javascript"></script>
 
 <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
 <!-- <script src="src/js/jquery-2.2.0.min.js"></script> -->
@@ -26,7 +28,7 @@
 	<img ng-src = "src/images/cards/{{ctrl.image}}">
 </div>
 
-<div> 
+<div>
 	<span ng-repeat = "card in ctrl.hand">
 		<img ng-src = "src/images/cards/{{card.image}}">
 	</span>
