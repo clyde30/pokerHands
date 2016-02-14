@@ -1,6 +1,57 @@
+
+function runApp () {
+  shuffle();
+  var hand = dealHand(5);
+  console.log(hand);
+  rankHand(hand);
+  }
+
 function rankHand(hand) {
+  console.log(hand);
+  findPairs(hand);
   isStraight(hand);
+  isFlush(hand)
 }
+
+//find hand value !incomplete!
+function findPairs(hand) {
+  var pair = [];
+  while(hand.length > 1) {
+		var i = 0;
+		var j = 1;
+		if (hand[i].number === hand[j].number) {
+			if (hand[i].number === hand[j++].number) {
+				if (hand[i].number === hand[j++].number) {
+          // 4 of a kind
+          removePairs(i,j);
+					if (hand[j++].number !== null) {
+						removeNoPair(j);
+					};
+				} else {
+          // Set
+          j = j - 1;
+          removePairs(i,j);
+        };
+			} else {
+        // Pair
+        hand.value = 
+        j = j - 1;
+        removePairs(i,j);
+      }
+		} else removeNoPair(i);
+	}
+
+  function removePairs(i,j) {
+    var array = hand.splice(i,j);
+    pair.push(array);
+  };
+
+  function removeNoPair (x) {
+    hand.splice(x,1);
+  }
+  console.log(pair);
+  return pair;
+};
 
 //check for straight
 function isStraight(hand) {
