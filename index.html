@@ -2,39 +2,36 @@
 <html ng-app = "dealApp">
 <head>
 	<title></title>
+<link rel="stylesheet" type="text/css" href="src/css/styles.css">
+<link rel="stylesheet" type="text/css" ref="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular/angular.js"></script>
-<link rel="stylesheet/less" type="text/css" href="src/css/style.less">
-<script src="bower_components/less/dist/less.min.js" type="text/javascript"></script>
-
-<!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
-<!-- <script src="src/js/jquery-2.2.0.min.js"></script> -->
 </head>
-<body ng-controller = "MainCtrl as ctrl">
 
-	<h1>Testing Card Dealer</h1>
+<body ng-controller = "MainCtrl as ctrl">
+	<div class = "container">
+
+	<div class = "title">
+		<h1>Card Dealer</h1>
+	</div>
 
 	<button ng-click = "ctrl.shuffle()">
 		Shuffle Deck </button>
 
-	<button ng-click = "ctrl.dealOne()">
+	<button ng-click = "ctrl.dealHand(1)">
 		Deal Card	</button> </br>
 
-	<button ng-click = "ctrl.dealHand()">
+	<button ng-click = "ctrl.dealHand(5)">
 		Deal Hand</button> </br>
 
-	<h3 ng-bind = "ctrl.showOneCard"></h3>
-
-	<div>
-	<img ng-src = "src/images/cards/{{ctrl.image}}">
-</div>
-
-<div>
+<div class = "cardContainer">
 	<span ng-repeat = "card in ctrl.hand">
-		<img ng-src = "src/images/cards/{{card.image}}">
+		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
+</div>
 
-<script src="bower_components/jQuery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="src/js/cardImage.js"></script>
 <script type="text/javascript" src="src/js/deal.js"></script>
 <script type="text/javascript" src="src/js/dealerApp.js"></script>

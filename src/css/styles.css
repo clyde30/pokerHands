@@ -1,0 +1,14 @@
+body {
+  background-color: #145912;
+}
+.title {
+  color: white;
+}
+.cardContainer {
+  width: 90%;
+  margin: auto;
+}
+.cardImage {
+  width: 18%;
+  height: auto;
+}
