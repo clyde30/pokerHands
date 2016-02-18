@@ -2,66 +2,98 @@
 function runApp () {
   shuffle();
   var hand = dealHand(5);
-  console.log(hand);
+  var display = hand;
   rankHand(hand);
-  }
+}
 
 function rankHand(hand) {
-  console.log(hand);
-  findPairs(hand);
+  displayHand(hand);
   isStraight(hand);
-  isFlush(hand)
+  isFlush(hand);
+  findPairs(hand);
 }
 
 //find hand value !incomplete!
 function findPairs(hand) {
-  var pair = [];
-  while(hand.length > 1) {
-		var i = 0;
-		var j = 1;
-		if (hand[i].number === hand[j].number) {
-			if (hand[i].number === hand[j++].number) {
-				if (hand[i].number === hand[j++].number) {
-          // 4 of a kind
-          removePairs(i,j);
-					if (hand[j++].number !== null) {
-						removeNoPair(j);
-					};
-				} else {
-          // Set
-          j = j - 1;
-          removePairs(i,j);
-        };
-			} else {
-        // Pair
-        hand.value = 
-        j = j - 1;
-        removePairs(i,j);
-      }
-		} else removeNoPair(i);
-	}
 
-  function removePairs(i,j) {
-    var array = hand.splice(i,j);
-    pair.push(array);
+  // var pairArray = hand.number.filter(function(element) {
+    // return (element === )
+  // })
+  var pairArray = [];
+  var noPairArray = [];
+
+  while(hand.length > 0) {
+      var i = 0;
+      var j = 1;
+      // check for pair
+      if (findPairValues(i,j,hand,2)) {
+        // check for set
+        j = 2
+        if (findPairValues(i,j,hand,3)){
+          // check for 4 of a kind
+          j = 3
+          if (findPairValues(i,j,hand,4)){
+            j = 4
+            removePairs(j);
+          }else{removePairs(j)}
+        }else {removePairs(j)}
+      }else {noPair()}
+
+  }
+
+  function removePairs(j) {
+    var x = j
+    for (var i = 0; i < x; i++){
+      pairArray.push(removeCard());
+    }
+  }
+
+  function noPair() {
+    noPairArray.push(removeCard());
   };
 
-  function removeNoPair (x) {
-    hand.splice(x,1);
+  function removeCard () {
+    var card = hand.shift()
+    return card;
+  };
+
+console.log(pairArray);
+console.log(noPairArray);
+// end of findPairs()
+};
+
+
+var findPairValues = function (i,j,hand,handLength) {
+  if (hand.length < handLength){
+    return false
+  }else {
+    if (hand[i].number === hand[j].number){
+      return true;
+    } else {
+        return false;
+      }
   }
-  console.log(pair);
-  return pair;
+}
+
+// function removePairs(x,y,hand) {
+//   var array = [];
+//   array.push(hand.splice(x,y));
+//   return array;
+// };
+
+function removeCard (hand) {
+  var card = hand.shift()
+  return card;
 };
 
 //check for straight
 function isStraight(hand) {
-	for (var i = 0; i < hand.length-1; i++) {
+  var isStraight = true;
+  for (var i = 0; i < hand.length-1; i++) {
 		var j = i + 1;
-		if ((hand[i].number+1) === hand[j].number){
-			isStraight = true;
-		}else {
-			isStraight = false;
-			break;
+		if ((hand[i].number+1) !== hand[j].number){
+			   isStraight = false;
+         break;
 		}
 	}
   console.log("Is the hand a straight? " + isStraight)
@@ -91,4 +123,4 @@ function isFlush(hand) {
 	}
   console.log("Is the hand a flush? " + isFlush)
 	return isFlush;
-}
+};
