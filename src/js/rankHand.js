@@ -1,9 +1,8 @@
+var cardValues = {};
 
-function runApp () {
-  shuffle();
-  var hand = dealHand(5);
-  var display = hand;
-  rankHand(hand);
+function runApp (hand) {
+  var cards = hand;
+  rankHand(cards);
 }
 
 function rankHand(hand) {
@@ -13,12 +12,9 @@ function rankHand(hand) {
   findPairs(hand);
 }
 
-//find hand value !incomplete!
+//find hand value
 function findPairs(hand) {
 
-  // var pairArray = hand.number.filter(function(element) {
-    // return (element === )
-  // })
   var pairArray = [];
   var noPairArray = [];
 
@@ -57,9 +53,10 @@ function findPairs(hand) {
     return card;
   };
 
-console.log(pairArray);
-console.log(noPairArray);
-// end of findPairs()
+  cardValues = {pairs:pairArray, noPairs:noPairArray}
+
+  rankPairs(cardValues);
+  // end of findPairs()
 };
 
 
@@ -74,17 +71,6 @@ var findPairValues = function (i,j,hand,handLength) {
       }
   }
 }
-
-// function removePairs(x,y,hand) {
-//   var array = [];
-//   array.push(hand.splice(x,y));
-//   return array;
-// };
-
-function removeCard (hand) {
-  var card = hand.shift()
-  return card;
-};
 
 //check for straight
 function isStraight(hand) {
@@ -124,3 +110,26 @@ function isFlush(hand) {
   console.log("Is the hand a flush? " + isFlush)
 	return isFlush;
 };
+
+function rankPairs(cardValues) {
+  var rank = "";
+  if (cardValues.pairs.length < 2) {
+    rank = "No Pairs";
+  }
+  if (cardValues.pairs.length === 2) {
+        rank =  "You have a pair of " + cardValues.pairs[0].number + "'s";
+      }
+
+  if (cardValues.pairs.length === 3) {
+    rank = "You have a set of " + cardValues.pairs[0].number + "'s";
+  }
+  if (cardValues.pairs.length === 4) {
+    if (cardValues.pairs[0].number === cardValues.pairs[3].number){
+      rank = "You have four of a kind, " + cardValues.pairs[0].number + "'s";
+    }else rank = "You have two of a kind " + cardValues.pairs[0].number + "'s and " + cardValues.pairs[2].number + "'s";
+  }
+  if (cardValues.pairs.length === 5) {
+    rank = "You have a full house, " + cardValues.pairs[0].number + " and " + cardValues.pairs[4].number + "'s";
+  }
+  return console.log(rank);
+}

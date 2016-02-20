@@ -5,6 +5,7 @@ angular.module('dealApp', [])
 
     self.dealHand = function (num) {
       self.hand = dealHand(num);
+      runApp(self.hand);
       console.log(self.hand);
     };
 
