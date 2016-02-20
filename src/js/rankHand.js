@@ -14,63 +14,81 @@ function rankHand(hand) {
 
 //find hand value
 function findPairs(hand) {
-
+  var i = 0;
   var pairArray = [];
   var noPairArray = [];
 
-  while(hand.length > 0) {
-      var i = 0;
-      var j = 1;
+while(i < hand.length) {
+      var j = i + 1;
       // check for pair
-      if (findPairValues(i,j,hand,2)) {
+      if (hand[i].number  === hand[j].number) {
+        if (j  > 3) break;
+        j++
         // check for set
-        j = 2
-        if (findPairValues(i,j,hand,3)){
+        if (hand[i].number === hand[j].number){
+          if (j  > 3) break;
+          j++
           // check for 4 of a kind
-          j = 3
-          if (findPairValues(i,j,hand,4)){
-            j = 4
-            removePairs(j);
-          }else{removePairs(j)}
-        }else {removePairs(j)}
-      }else {noPair()}
+          if (hand[i].number === hand[j].number){
+
+            if (i === 0){
+              j++
+              removePair(i,j)
+              removeNonPair(j)
+              break
+            };
+            if (i === 1){
+              removePair(i);
+              break
+            }
+          }else{removePair(i,j)}
+        }else {removePair(i,j)}
+      }else {
+        removeNonPair(i,j)
+      }
+      if (j >= hand.length - 1) {
+        removeNonPair(j)
+        break;
+      }
+      i = j;
 
   }
 
-  function removePairs(j) {
-    var x = j
-    for (var i = 0; i < x; i++){
-      pairArray.push(removeCard());
+  function removePair(i,j) {
+      var cards = hand.slice(i,j);
+      pairArray.push(cards[0])
     }
-  }
 
-  function noPair() {
-    noPairArray.push(removeCard());
+  function removeNonPair(i,j) {
+    var card = hand.slice(i,j);
+    noPairArray.push(card[0]);
   };
 
-  function removeCard () {
-    var card = hand.shift()
-    return card;
-  };
+  // function removeCard () {
+  //   var card = hand.shift()
+  //   return card;
+  // };
 
   cardValues = {pairs:pairArray, noPairs:noPairArray}
+  console.log("Pair Array = " + pairArray)
+  console.log("NonPair Array = " + noPairArray)
 
-  rankPairs(cardValues);
+  // rankPairs(cardValues);
   // end of findPairs()
 };
 
 
-var findPairValues = function (i,j,hand,handLength) {
-  if (hand.length < handLength){
-    return false
-  }else {
-    if (hand[i].number === hand[j].number){
-      return true;
-    } else {
-        return false;
-      }
-  }
-}
+// var findPairValues = function (i,j,hand,handLength) {
+//   if (hand.length < handLength){
+//     return false
+//   }else {
+//     if (hand[i].number === hand[j].number){
+//       return true;
+//     } else {
+//         return false;
+//       }
+//   }
+// }
 
 //check for straight
 function isStraight(hand) {
