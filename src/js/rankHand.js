@@ -1,5 +1,3 @@
-var cardValues = {};
-
 function runApp (hand) {
   var cards = hand;
   rankHand(cards);
@@ -74,8 +72,9 @@ while(i < hand.length) {
     noPairArray.push(card[0]);
   };
 
-  cardValues = {pairs:pairArray, noPairs:noPairArray}
-  rankPairs();
+
+  cardValues = {pairs:pairArray, noPairs:noPairArray};
+  // rankPairs();
   // end of findPairs()
 };
 
