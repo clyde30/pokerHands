@@ -40,8 +40,9 @@ function shuffleDeck(newDeck) {
 function card(number,suit) {
 	this.number = number;
 	this.suit = suit;
-	this.buildCard = number + suit;
+	this.buildCard = getFaceCard(number) + suit;
 	this.image = pickCardImage(number, suit);
+	this.showCard = getFaceCard(number);
 };
 
 //deal one random card and remove it from deck array

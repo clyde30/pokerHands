@@ -13,3 +13,14 @@ function pickCardImage(number, suit) {
 
   return number + "_of_"+suit+".jpg";
 }
+
+function getFaceCard (number) {
+  var faceName;
+
+  if (number <   11) {faceName = number};
+  if (number === 11) {faceName = "jack"};
+  if (number === 12) {faceName = "queen"};
+  if (number === 13) {faceName = "king"};
+  if (number === 14) {faceName = "ace"};
+  return faceName;
+}
