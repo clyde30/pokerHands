@@ -1,0 +1,18 @@
+{
+  "name": "pokerHands",
+  "homepage": "https://github.com/clyde30/pokerHands",
+  "authors": [
+    "Jones <ajonestx@gmail.com>"
+  ],
+  "description": "display poker hands on a SPA",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
