@@ -1,7 +1,3 @@
-function runApp (hand) {
-  var cards = hand;
-  rankHand(cards);
-}
 
 function rankHand(hand) {
   displayHand(hand);

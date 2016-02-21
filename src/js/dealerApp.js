@@ -4,8 +4,8 @@ angular.module('dealApp', [])
     var self = this;
 
     self.dealHand = function (num) {
-      self.hand = dealHand(num);
-      runApp(self.hand);
+      self.hand = runApp(num);
+      // runApp(self.hand);
       console.log(self.hand);
     };
 

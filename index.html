@@ -19,22 +19,25 @@
 	<button ng-click = "ctrl.shuffle()">
 		Shuffle Deck </button>
 
-	<button ng-click = "ctrl.dealHand(1)">
-		Deal Card	</button> </br>
+	<!-- <button ng-click = "ctrl.dealHand(1)"> -->
+		<!-- Deal Card	</button> </br> -->
 
 	<button ng-click = "ctrl.dealHand(5)">
 		Deal Hand</button> </br>
 
 <div class = "cardContainer">
-	<span ng-repeat = "card in ctrl.hand">
+	<span ng-repeat = "card in ctrl.hand.deal">
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
 </div>
 
+<script type="text/javascript" src="src/js/hand.js"></script>
 <script type="text/javascript" src="src/js/rankHand.js"></script>
 <script type="text/javascript" src="src/js/cardImage.js"></script>
 <script type="text/javascript" src="src/js/deal.js"></script>
 <script type="text/javascript" src="src/js/dealerApp.js"></script>
+<script type="text/javascript" src="src/js/run.js"></script>
+
 </body>
 </html>
