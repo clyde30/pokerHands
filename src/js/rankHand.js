@@ -22,11 +22,17 @@ while(i < hand.length) {
       var j = i + 1;
       // check for pair
       if (hand[i].number  === hand[j].number) {
-        if (j  > 3) break;
+        if (j  > 3) {
+          removePair(i);
+          break;
+        }
         j++
         // check for set
         if (hand[i].number === hand[j].number){
-          if (j  > 3) break;
+          if (j  > 3) {
+            removePair(i);
+            break;
+          }
           j++
           // check for 4 of a kind
           if (hand[i].number === hand[j].number){
@@ -56,7 +62,11 @@ while(i < hand.length) {
 
   function removePair(i,j) {
       var cards = hand.slice(i,j);
-      pairArray.push(cards[0])
+      for (var i = 0; i < cards.length; i++) {
+        pairArray.push(cards[i])
+      }
+      // pairArray.push(cards);
+      // console.log("pair = " + cards)
     }
 
   function removeNonPair(i,j) {
@@ -64,31 +74,10 @@ while(i < hand.length) {
     noPairArray.push(card[0]);
   };
 
-  // function removeCard () {
-  //   var card = hand.shift()
-  //   return card;
-  // };
-
   cardValues = {pairs:pairArray, noPairs:noPairArray}
-  console.log("Pair Array = " + pairArray)
-  console.log("NonPair Array = " + noPairArray)
-
-  // rankPairs(cardValues);
+  rankPairs();
   // end of findPairs()
 };
-
-
-// var findPairValues = function (i,j,hand,handLength) {
-//   if (hand.length < handLength){
-//     return false
-//   }else {
-//     if (hand[i].number === hand[j].number){
-//       return true;
-//     } else {
-//         return false;
-//       }
-//   }
-// }
 
 //check for straight
 function isStraight(hand) {
@@ -129,7 +118,7 @@ function isFlush(hand) {
 	return isFlush;
 };
 
-function rankPairs(cardValues) {
+function rankPairs() {
   var rank = "";
   if (cardValues.pairs.length < 2) {
     rank = "No Pairs";
