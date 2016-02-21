@@ -1,6 +1,8 @@
 // create hand object
-function Hand(numCards) {
-  this.deal = dealHand(numCards);
+function Hand(hand) {
+  this.hand = hand;
+  this.rank = rankHand(hand);
+  this.displayHand = displayCards;
 }
 
 //deal hand
@@ -14,3 +16,7 @@ function dealHand(numCards) {
 	})
 	return hand;
 };
+
+function displayHand(hand) {
+
+}

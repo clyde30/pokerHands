@@ -51,13 +51,3 @@ function dealCard() {
 
 	return card;
 };
-
-//display hand as a string
-function displayHand(hand) {
-	var x = "";
-	for (var i = 0; i < hand.length; i++) {
-		x += hand[i].buildCard
-		x += ", "
-	}
-	return console.log(x);
-}

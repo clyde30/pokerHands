@@ -1,5 +1,5 @@
 function runApp (numCards) {
-  var hand = new Hand(numCards);
-  // rankHand(hand);
+  var cards = dealHand(numCards);
+  hand = new Hand(cards);
   return hand;
 }

@@ -1,9 +1,11 @@
+var displayCards = "";
+var cardValues = {};
+var rank;
 
 function rankHand(hand) {
-  displayHand(hand);
-  isStraight(hand);
-  isFlush(hand);
   findPairs(hand);
+  rankPairs();
+  return rank;
 }
 
 //find hand value
@@ -12,7 +14,7 @@ function findPairs(hand) {
   var pairArray = [];
   var noPairArray = [];
 
-while(i < hand.length) {
+  while(i < hand.length) {
       var j = i + 1;
       // check for pair
       if (hand[i].number  === hand[j].number) {
@@ -59,8 +61,6 @@ while(i < hand.length) {
       for (var i = 0; i < cards.length; i++) {
         pairArray.push(cards[i])
       }
-      // pairArray.push(cards);
-      // console.log("pair = " + cards)
     }
 
   function removeNonPair(i,j) {
@@ -70,68 +70,92 @@ while(i < hand.length) {
 
 
   cardValues = {pairs:pairArray, noPairs:noPairArray};
-  // rankPairs();
+  // return cardValues;
   // end of findPairs()
 };
 
-//check for straight
-function isStraight(hand) {
-  var isStraight = true;
-  for (var i = 0; i < hand.length-1; i++) {
-		var j = i + 1;
-		if ((hand[i].number+1) !== hand[j].number){
-			   isStraight = false;
-         break;
-		}
-	}
-  console.log("Is the hand a straight? " + isStraight)
-  return isStraight;
-}
-
-// check for flush
-function isFlush(hand) {
-	var isFlush = false;
-
-  //put suits into array
-  function collectSuit(hand) {
-	   var flush = [];
-	    for (var i = 0; i < hand.length; i++) {
-		      flush.push(hand[i].suit)
-	       }
-	        return flush
-  }
-	var flush = collectSuit(hand);
-	var heartFlush = flush.every(function(x) {return x === "H"});
-	var diamondFlush = flush.every(function(x) {return x === "D"});
-	var spadeFlush = flush.every(function(x) {return x === "S"});
-	var clubFlush = flush.every(function(x) {return x === "C"});
-
-	if (heartFlush || diamondFlush || spadeFlush || clubFlush) {
-		isFlush = true;
-	}
-  console.log("Is the hand a flush? " + isFlush)
-	return isFlush;
-};
-
 function rankPairs() {
-  var rank = "";
   if (cardValues.pairs.length < 2) {
-    rank = "No Pairs";
+    rank = 0;
   }
   if (cardValues.pairs.length === 2) {
-        rank =  "You have a pair of " + cardValues.pairs[0].number + "'s";
+        displayCards =  "You have a pair of " + cardValues.pairs[0].number + "'s";
+        rank = 1;
       }
 
   if (cardValues.pairs.length === 3) {
-    rank = "You have a set of " + cardValues.pairs[0].number + "'s";
+    displayCards = "You have a set of " + cardValues.pairs[0].number + "'s";
+    rank = 3
   }
   if (cardValues.pairs.length === 4) {
     if (cardValues.pairs[0].number === cardValues.pairs[3].number){
-      rank = "You have four of a kind, " + cardValues.pairs[0].number + "'s";
-    }else rank = "You have two of a kind " + cardValues.pairs[0].number + "'s and " + cardValues.pairs[2].number + "'s";
+      displayCards = "You have four of a kind, " + cardValues.pairs[0].number + "'s";
+      rank = 7
+    }else {
+      displayCards = "You have two of a kind " + cardValues.pairs[0].number + "'s and " + cardValues.pairs[2].number + "'s";
+      rank = 2;
+    }
   }
   if (cardValues.pairs.length === 5) {
-    rank = "You have a full house, " + cardValues.pairs[0].number + " and " + cardValues.pairs[4].number + "'s";
+    displayCards = "You have a full house, " + cardValues.pairs[0].number + " and " + cardValues.pairs[4].number + "'s";
+    rank = 6
   }
-  return console.log(rank);
+  console.log(displayCards);
+  console.log(rank);
+  // return rank;
+}
+
+function isStraightFlush(hand){
+  var straight;
+  var flush;
+
+  //check for straight
+  function isStraight(hand) {
+    straight = true;
+    for (var i = 0; i < hand.length-1; i++) {
+  		var j = i + 1;
+  		if ((hand[i].number+1) !== hand[j].number){
+  			   straight = false;
+           break;
+  		}
+  	}
+  }
+
+  // check for flush
+  function isFlush(hand) {
+  	flush = false;
+
+    //put suits into array
+    function collectSuit(hand) {
+       var flushArray = [];
+  	    for (var i = 0; i < hand.length; i++) {
+  		      flushArray.push(hand[i].suit)
+  	       }
+  	        return flushArray
+    }
+    	var checkFlush = collectSuit(hand);
+    	var heartFlush = checkFlush.every(function(x) {return x === "H"});
+    	var diamondFlush = checkFlush.every(function(x) {return x === "D"});
+    	var spadeFlush = checkFlush.every(function(x) {return x === "S"});
+    	var clubFlush = checkFlush.every(function(x) {return x === "C"});
+
+    	if (heartFlush || diamondFlush || spadeFlush || clubFlush) {
+    		flush = true;
+    	}
+    };
+
+    if (straight && flush){
+      rank = 8;
+    }
+    if ((straight === true) && (flush === false)){
+      rank = 4;
+    }
+    if ((straight === false) && (flush === true)){
+      rank = 5;
+    }
+    if (rank === 4) {displayCards = "You have a Straight."}
+    if (rank === 5) {displayCards = "You have a Flush."}
+    if (rank === 8) {displayCards = "You have a Straight Flush."}
+
+
 }

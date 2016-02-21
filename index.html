@@ -26,10 +26,13 @@
 		Deal Hand</button> </br>
 
 <div class = "cardContainer">
-	<span ng-repeat = "card in ctrl.hand.deal">
+	<span ng-repeat = "card in ctrl.hand.hand">
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
+
+<div class = "handRank">
+	<h2>{{ctrl.hand.displayHand}}</h2>
 </div>
 
 <script type="text/javascript" src="src/js/hand.js"></script>
