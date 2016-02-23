@@ -5,6 +5,7 @@ var rank;
 function rankHand(hand) {
   findPairs(hand);
   rankPairs();
+  isStraightFlush(hand);
   return rank;
 }
 
@@ -144,13 +145,13 @@ function rankPairs() {
 
     function isStraightFlush(hand){
 
-      if (isStraight && isFlush(hand)){
+      if (isStraight(hand) && isFlush(hand)){
         rank = 8;
       }
-      if ((isStraight === true) && (isFlush(hand) === false)){
+      if ((isStraight(hand) === true) && (isFlush(hand) === false)){
         rank = 4;
       }
-      if ((isStraight === false) && (isFlush(hand) === true)){
+      if ((isFlush(hand) === true) && (isStraight(hand) === false)){
         rank = 5;
       }
       if (rank === 4) {Hand.displayCards = "You have a Straight."}
