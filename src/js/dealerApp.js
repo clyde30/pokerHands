@@ -5,7 +5,6 @@ angular.module('dealApp', [])
 
     self.dealHand = function (num) {
       self.hand = runApp(num);
-      // runApp(self.hand);
       console.log(self.hand);
     };
 
@@ -14,4 +13,29 @@ angular.module('dealApp', [])
       self.hand = [];
       console.log("Shuffled")
     };
+
+    //keep dealing until hand is reached.
+    self.getHand = function () {
+      var count = 1;
+      shuffle();
+      self.hand = [];
+      self.hand = runApp(5);
+      console.log("Shuffled")
+      var getHand = self.handRankName;
+      console.log("Get this hand " + getHand);
+      console.log("Current hand = " + self.hand.handName);
+      console.log("Current hand = " + self.hand.rank);
+
+      while (getHand != self.hand.handName) {
+        count++
+        console.log(count);
+        self.count = count;
+        shuffle();
+        self.hand = [];
+        self.hand = runApp(5);
+      }
+
+
+    }
+
   }]);

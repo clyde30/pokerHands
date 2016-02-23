@@ -1,4 +1,4 @@
-var displayCards = "";
+// var displayCards = "";
 var cardValues = {};
 var rank;
 
@@ -76,10 +76,12 @@ function findPairs(hand) {
 
 function rankPairs() {
   if (cardValues.pairs.length < 2) {
+    Hand.displayCards = "";
     rank = 0;
+
   }
   if (cardValues.pairs.length === 2) {
-        displayCards =  "You have a pair of " + cardValues.pairs[0].number + "'s";
+        Hand.displayCards =  "You have a pair of " + cardValues.pairs[0].number + "'s";
         rank = 1;
       }
 
@@ -89,29 +91,23 @@ function rankPairs() {
   }
   if (cardValues.pairs.length === 4) {
     if (cardValues.pairs[0].number === cardValues.pairs[3].number){
-      displayCards = "You have four of a kind, " + cardValues.pairs[0].number + "'s";
+      Hand.displayCards = "You have four of a kind, " + cardValues.pairs[0].number + "'s";
       rank = 7
     }else {
-      displayCards = "You have two of a kind " + cardValues.pairs[0].number + "'s and " + cardValues.pairs[2].number + "'s";
+      Hand.displayCards = "You have two of a kind " + cardValues.pairs[0].number + "'s and " + cardValues.pairs[2].number + "'s";
       rank = 2;
     }
   }
   if (cardValues.pairs.length === 5) {
-    displayCards = "You have a full house, " + cardValues.pairs[0].number + " and " + cardValues.pairs[4].number + "'s";
+    Hand.displayCards = "You have a full house, " + cardValues.pairs[0].number + " and " + cardValues.pairs[4].number + "'s";
     rank = 6
   }
-  console.log(displayCards);
-  console.log(rank);
   // return rank;
 }
 
-function isStraightFlush(hand){
-  var straight;
-  var flush;
-
   //check for straight
   function isStraight(hand) {
-    straight = true;
+    var straight = true;
     for (var i = 0; i < hand.length-1; i++) {
   		var j = i + 1;
   		if ((hand[i].number+1) !== hand[j].number){
@@ -119,11 +115,12 @@ function isStraightFlush(hand){
            break;
   		}
   	}
+    return straight;
   }
 
   // check for flush
   function isFlush(hand) {
-  	flush = false;
+  	var flush = false;
 
     //put suits into array
     function collectSuit(hand) {
@@ -142,20 +139,37 @@ function isStraightFlush(hand){
     	if (heartFlush || diamondFlush || spadeFlush || clubFlush) {
     		flush = true;
     	}
+      return flush;
     };
 
-    if (straight && flush){
-      rank = 8;
-    }
-    if ((straight === true) && (flush === false)){
-      rank = 4;
-    }
-    if ((straight === false) && (flush === true)){
-      rank = 5;
-    }
-    if (rank === 4) {displayCards = "You have a Straight."}
-    if (rank === 5) {displayCards = "You have a Flush."}
-    if (rank === 8) {displayCards = "You have a Straight Flush."}
+    function isStraightFlush(hand){
 
+      if (isStraight && isFlush(hand)){
+        rank = 8;
+      }
+      if ((isStraight === true) && (isFlush(hand) === false)){
+        rank = 4;
+      }
+      if ((isStraight === false) && (isFlush(hand) === true)){
+        rank = 5;
+      }
+      if (rank === 4) {Hand.displayCards = "You have a Straight."}
+      if (rank === 5) {Hand.displayCards = "You have a Flush."}
+      if (rank === 8) {Hand.displayCards = "You have a Straight Flush."}
 
+}
+
+function handName(rank) {
+  var str = "";
+  if (rank === 0) {str = "High Card"};
+  if (rank === 1) {str = "Pair"};
+  if (rank === 2) {str = "Two Pair"};
+  if (rank === 3) {str = "Set"};
+  if (rank === 4) {str = "Straight"};
+  if (rank === 5) {str = "Flush"};
+  if (rank === 6) {str = "Full House"};
+  if (rank === 7) {str = "Four of a Kind"};
+  if (rank === 8) {str = "Straight Flush"};
+
+  return str;
 }
