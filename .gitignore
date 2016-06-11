@@ -1,3 +1,5 @@
 bower_components
 bootstrapTest.html
 node_modules
+.DS_Store
+**/.DS_Store
