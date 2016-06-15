@@ -23,11 +23,10 @@
 		<!-- Deal Card	</button> </br> -->
 
 	<button ng-click = "ctrl.dealHand(5)">
-		Deal Hand</button>
+		Deal</button>
 
-	</br>
 
-	<h4>Deal a hand</h4>
+	<!-- <h4>Deal a hand</h4>
 	<select ng-model= "ctrl.handRankName">
 		<option value="Pair">Pair</option>
 		<option value="Two Pair">Two Pair</option>
@@ -38,22 +37,27 @@
 		<option value="Four of a Kind">Four of a Kind</option>
 		<option value="Straight Flush">Straight Flush</option>
 	</select>
-	<button ng-click = "ctrl.getHand()">Deal a {{ctrl.handRankName}}</button>
+	<button ng-click = "ctrl.getHand()">Deal a {{ctrl.handRankName}}</button> -->
 
-	<!-- <button ng-click = "ctrl.getHand"> -->
-		<!-- Deal a {{ctrl.pickHand}}</button>  -->
-		<!-- <input type="button" name="name" value=""> -->
 	</br>
 
-<div class = "cardContainer">
-	<span ng-repeat = "card in ctrl.hand.cards">
+<div class = "cardContainer1">
+	<div>Player One</div>
+	<span ng-repeat = "card in ctrl.hand1.cards">
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
 
-<div class = "handRank">
-	<h2>{{ctrl.count}}</h2>
+<div class = "cardContainer2">
+	<div>Player Two</div>
+	<span ng-repeat = "card in ctrl.hand2.cards">
+		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
+	</span>
 </div>
+
+<!-- <div class = "handRank">
+	<h2>{{ctrl.count}}</h2>
+</div> -->
 
 <script type="text/javascript" src="src/js/hand.js"></script>
 <script type="text/javascript" src="src/js/rankHand.js"></script>
