@@ -3,9 +3,9 @@
 <head>
 	<title></title>
 <link rel="stylesheet" type="text/css" href="src/css/styles.css">
-<!-- <link rel="stylesheet" type="text/css" ref="bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
-<!-- <script src="bower_components/jquery/dist/jquery.js"></script> -->
-<!-- <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
+<link rel="stylesheet" type="text/css" ref="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 </head>
 
@@ -19,45 +19,24 @@
 	<button ng-click = "ctrl.shuffle()">
 		Shuffle Deck </button>
 
-	<!-- <button ng-click = "ctrl.dealHand(1)"> -->
-		<!-- Deal Card	</button> </br> -->
-
 	<button ng-click = "ctrl.dealHand(5)">
 		Deal</button>
 
-
-	<!-- <h4>Deal a hand</h4>
-	<select ng-model= "ctrl.handRankName">
-		<option value="Pair">Pair</option>
-		<option value="Two Pair">Two Pair</option>
-		<option value="Set">Set</option>
-		<option value="Straight">Straight</option>
-		<option value="Flush">Flush</option>
-		<option value="Full House">Full House</option>
-		<option value="Four of a Kind">Four of a Kind</option>
-		<option value="Straight Flush">Straight Flush</option>
-	</select>
-	<button ng-click = "ctrl.getHand()">Deal a {{ctrl.handRankName}}</button> -->
-
 	</br>
 
-<div class = "cardContainer1">
-	<div>Player One</div>
+<div class = "row cardContainer1">
+	<h4>Player One</h4>
 	<span ng-repeat = "card in ctrl.hand1.cards">
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
 
-<div class = "cardContainer2">
-	<div>Player Two</div>
+<div class = "row cardContainer2">
+	<h4>Player Two</h4>
 	<span ng-repeat = "card in ctrl.hand2.cards">
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
-
-<!-- <div class = "handRank">
-	<h2>{{ctrl.count}}</h2>
-</div> -->
 
 <script type="text/javascript" src="src/js/hand.js"></script>
 <script type="text/javascript" src="src/js/rankHand.js"></script>
