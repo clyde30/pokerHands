@@ -3,6 +3,8 @@ function Hand(hand) {
   this.cards = hand;
   this.rank = rankHand(hand);
   this.handName = handName(rankHand(hand));
+  this.pairs = cardValues.pairs;
+  this.nopairs = cardValues.noPairs;
 }
 
 //deal hand

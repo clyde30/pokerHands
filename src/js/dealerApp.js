@@ -9,17 +9,10 @@ angular.module('dealApp', [])
       console.log(self.hand1);
       console.log(self.hand2);
 
+      rankPlayers(self.hand1, self.hand2);
+
       //finds winner. Doesn't work with push.
       //todo -- move to function
-      if (self.hand1.rank === self.hand2.rank) {
-        console.log("push ");
-      } else {
-        if (self.hand1.rank > self.hand2.rank) {
-          console.log("Player One Wins with -->" + self.hand1.handName);
-        } else {
-          console.log("Player Two Wins with -->" + self.hand2.handName);
-        }
-      }
     };
 
     self.shuffle = function () {
