@@ -28,14 +28,18 @@
 		<h2>{{ctrl.winner}}</h2>
 	</div>
 
-<div class = "row cardContainer1">
+<div class = "row cardContainer">
 	<h4>Player One</h4>
 	<span ng-repeat = "card in ctrl.hand1.cards">
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
 
-<div class = "row cardContainer2">
+<div class="row chipBox">
+	
+</div>
+
+<div class = "row cardContainer">
 	<h4>Player Two</h4>
 	<span ng-repeat = "card in ctrl.hand2.cards">
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
