@@ -19,6 +19,11 @@ h4 {
   width: 18%;
   height: auto;
 }
+.hiddenCard {
+  width: 18%;
+  height: auto;
+  background-color: blue;
+}
 .winnerBox {
   background-color: red;
   color: white;

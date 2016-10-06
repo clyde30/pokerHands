@@ -19,24 +19,24 @@
 	<button ng-click = "ctrl.shuffle()">
 		Shuffle Deck </button>
 
-	<button ng-click = "ctrl.dealHand(5)">
+	<button ng-click = "ctrl.dealHand(5)" ng-click="showButton = !showButton">
 		Deal</button>
 
 	</br>
 
-	<div class="row winnerBox">
+	<div ng-show="showCards" class="row winnerBox">
 		<h2>{{ctrl.winner}}</h2>
 	</div>
 
-<div class = "row cardContainer">
+<div ng-show="showCards" class = "row cardContainer">
 	<h4>Player One</h4>
 	<span ng-repeat = "card in ctrl.hand1.cards">
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
 
-<div class="row chipBox">
-	
+<!-- <div class="row chipBox"> -->
+
 </div>
 
 <div class = "row cardContainer">
@@ -45,6 +45,8 @@
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
+
+<button ng-click="showCards = !showCards">Show Cards</button>
 
 <script type="text/javascript" src="src/js/hand.js"></script>
 <script type="text/javascript" src="src/js/rankHand.js"></script>
