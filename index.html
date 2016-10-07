@@ -29,7 +29,7 @@
 	</div>
 
 <div ng-show="showCards" class = "row cardContainer">
-	<h4>Player One</h4>
+	<h4>Computer</h4>
 	<span ng-repeat = "card in ctrl.hand1.cards">
 		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
 	</span>
@@ -40,10 +40,12 @@
 </div>
 
 <div class = "row cardContainer">
-	<h4>Player Two</h4>
-	<span ng-repeat = "card in ctrl.hand2.cards">
-		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
-	</span>
+	<h4>Human</h4>
+
+		<span ng-repeat="card in ctrl.hand2.cards" value="{{card.id}}">
+			<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
+		</span>
+
 </div>
 
 <button ng-click="showCards = !showCards">Show Cards</button>
