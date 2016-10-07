@@ -12,8 +12,12 @@ h4 {
 }
 .cardContainer {
   color: white;
-  width: 75%;
+  width: 65%;
   margin: auto;
+}
+.cardImage:hover {
+  width: 20%;
+  height: auto;
 }
 .cardImage {
   width: 18%;

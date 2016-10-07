@@ -17,4 +17,5 @@ angular.module('dealApp', [])
       self.hand2 = [];
       console.log("Shuffled");
     };
+
   }]);

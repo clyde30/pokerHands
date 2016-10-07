@@ -41,11 +41,9 @@
 
 <div class = "row cardContainer">
 	<h4>Human</h4>
-
-		<span ng-repeat="card in ctrl.hand2.cards" value="{{card.id}}">
-			<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
+		<span ng-repeat="card in ctrl.hand2.cards">
+			<img ng-click="ctrl.removeCard({{card}})" ng-src="src/images/cards/{{card.image}}" class="cardImage">
 		</span>
-
 </div>
 
 <button ng-click="showCards = !showCards">Show Cards</button>
