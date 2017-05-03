@@ -2,11 +2,9 @@
 <html ng-app = "dealApp">
 <head>
 	<title></title>
-<link rel="stylesheet" type="text/css" href="src/css/styles.css">
-<link rel="stylesheet" type="text/css" ref="bower_components/bootstrap/dist/css/bootstrap.min.css">
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular/angular.js"></script>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" ref="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 
 <body ng-controller = "MainCtrl as ctrl">
@@ -31,7 +29,7 @@
 <div ng-show="showCards" class = "row cardContainer">
 	<h4>Computer</h4>
 	<span ng-repeat = "card in ctrl.hand1.cards">
-		<img ng-src = "src/images/cards/{{card.image}}" class="cardImage">
+		<img ng-src = "images/cards/{{card.image}}" class="cardImage">
 	</span>
 </div>
 
@@ -42,19 +40,19 @@
 <div class = "row cardContainer">
 	<h4>Human</h4>
 		<span ng-repeat="card in ctrl.hand2.cards">
-			<img ng-click="ctrl.removeCard({{card}})" ng-src="src/images/cards/{{card.image}}" class="cardImage">
+			<img ng-click="ctrl.removeCard({{card}})" ng-src="images/cards/{{card.image}}" class="cardImage">
 		</span>
 </div>
 
 <button ng-click="showCards = !showCards">Show Cards</button>
 
-<script type="text/javascript" src="src/js/hand.js"></script>
-<script type="text/javascript" src="src/js/rankHand.js"></script>
-<script type="text/javascript" src="src/js/rankPlayers.js"></script>
-<script type="text/javascript" src="src/js/cardImage.js"></script>
-<script type="text/javascript" src="src/js/deal.js"></script>
-<script type="text/javascript" src="src/js/dealerApp.js"></script>
-<script type="text/javascript" src="src/js/run.js"></script>
+<script type="text/javascript" src="js/hand.js"></script>
+<script type="text/javascript" src="js/rankHand.js"></script>
+<script type="text/javascript" src="js/rankPlayers.js"></script>
+<script type="text/javascript" src="js/cardImage.js"></script>
+<script type="text/javascript" src="js/deal.js"></script>
+<script type="text/javascript" src="js/dealerApp.js"></script>
+<script type="text/javascript" src="js/run.js"></script>
 
 </body>
 </html>
