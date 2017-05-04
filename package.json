@@ -1,0 +1,22 @@
+{
+  "name": "poker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clyde30/pokerHands.git"
+  },
+  "author": "Austin Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clyde30/pokerHands/issues"
+  },
+  "homepage": "https://github.com/clyde30/pokerHands#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
