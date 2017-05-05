@@ -28,6 +28,11 @@ app.post('/contact', function(req,res) {
     res.send("Hello " + req.body.name);
 })
 
+app.get('/:username', function(req, res) {
+    console.log(req.params);
+    res.send('Hello ' + req.params.username);
+})
+
 app.get('/rules', function(req,res){
     res.sendFile(__dirname + '/rules.html')
 })
