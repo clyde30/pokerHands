@@ -7,8 +7,10 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <div>
-            I am the contact page.
-        </div> 
+        <form method="POST" action="/contact">
+            <input type="text" name="name">
+            <input type="email" name="email">
+            <button type="submit">Submit</button>
+        </form>
     </body>
 </html>
