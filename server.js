@@ -4,15 +4,15 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/public'));
 
+app.set('view engine', 'ejs');
 app.listen(8080, function() {
     console.log("Listening on 8080");
 });
 
-app.use(express.static(__dirname + '/public'));
-
 app.get('/', function(req,res){
-    res.sendFile(__dirname + "/home.html");
+    res.render('pages/index');
 });
 
 app.get('/game', function(req, res) {
