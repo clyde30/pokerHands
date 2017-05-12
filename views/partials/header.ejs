@@ -1,0 +1,13 @@
+	<div class = "title">
+		<h1>Card Dealer</h1>
+	</div>
+
+	<button ng-click = "ctrl.shuffle()">
+		Shuffle Deck </button>
+	<button ng-click = "ctrl.dealHand(5)" ng-click="showButton = !showButton">
+		Deal</button>
+	</br>
+
+	<div ng-show="showCards" class="row winnerBox">
+		<h2>{{ctrl.winner}}</h2>
+	</div>

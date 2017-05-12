@@ -1,34 +1,3 @@
-<main ng-controller = "MainCtrl as ctrl">
-	<div class = "container">
-	<div class = "title">
-		<h1>Card Dealer</h1>
-	</div>
-
-	<button ng-click = "ctrl.shuffle()">
-		Shuffle Deck </button>
-	<button ng-click = "ctrl.dealHand(5)" ng-click="showButton = !showButton">
-		Deal</button>
-	</br>
-	<div ng-show="showCards" class="row winnerBox">
-		<h2>{{ctrl.winner}}</h2>
-	</div>
-<div ng-show="showCards" class = "row cardContainer">
-	<h4>Computer</h4>
-	<span ng-repeat = "card in ctrl.hand1.cards">
-		<img ng-src = "images/cards/{{card.image}}" class="cardImage">
-	</span>
-</div>
-</div>
-
-<div class = "row cardContainer">
-	<h4>Human</h4>
-		<span ng-repeat="card in ctrl.hand2.cards">
-			<img ng-click="ctrl.removeCard({{card}})" ng-src="images/cards/{{card.image}}" class="cardImage">
-		</span>
-</div>
-
-<button ng-click="showCards = !showCards">Show Cards</button>
-
 <script type="text/javascript" src="js/hand.js"></script>
 <script type="text/javascript" src="js/rankHand.js"></script>
 <script type="text/javascript" src="js/rankPlayers.js"></script>
@@ -36,5 +5,3 @@
 <script type="text/javascript" src="js/deal.js"></script>
 <script type="text/javascript" src="js/dealerApp.js"></script>
 <script type="text/javascript" src="js/run.js"></script>
-
-</main>
