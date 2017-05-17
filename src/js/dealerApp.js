@@ -1,3 +1,5 @@
+var dealer = require('./deal');
+
 angular.module('dealApp', [])
 
   .controller('MainCtrl', [function() {
@@ -12,7 +14,7 @@ angular.module('dealApp', [])
     };
 
     self.shuffle = function () {
-      shuffle();
+      dealer.shuffle;
       self.hand1 = [];
       self.hand2 = [];
       console.log("Shuffled");
