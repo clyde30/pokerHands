@@ -1,7 +1,3 @@
-module.exports = {
-	shuffle: shuffle
-}
-
 var deck;
 
 function shuffle() {

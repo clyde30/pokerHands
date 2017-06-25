@@ -1,5 +1,3 @@
-var dealer = require('./deal');
-
 angular.module('dealApp', [])
 
   .controller('MainCtrl', [function() {

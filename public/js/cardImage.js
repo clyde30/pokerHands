@@ -1,3 +1,6 @@
+// module.exports.pickCardImage = pickCardImage;
+// module.exports.getFaceCard = getFaceCard;
+
 function pickCardImage(number, suit) {
 
   if (suit === "H") {suit = "hearts"};

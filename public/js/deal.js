@@ -1,6 +1,6 @@
-module.exports = {
-	shuffle: shuffle
-}
+// const cardImage = require('./cardImage');
+// module.exports.shuffle = shuffle;
+// module.exports.deck = deck;
 
 var deck;
 
@@ -44,9 +44,12 @@ function shuffleDeck(newDeck) {
 function card(number,suit) {
 	this.number = number;
 	this.suit = suit;
-	this.buildCard = getFaceCard(number) + suit;
 	this.image = pickCardImage(number, suit);
+	this.buildCard = getFaceCard(number) + suit;
 	this.showCard = getFaceCard(number);
+	// this.image = cardImage.pickCardImage(number, suit);
+	// this.buildCard = cardImage.getFaceCard(number) + suit;
+	// this.showCard = cardImage.getFaceCard(number);
 };
 
 //deal one random card and remove it from deck array

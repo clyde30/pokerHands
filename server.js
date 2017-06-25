@@ -28,10 +28,25 @@ app.post('/contact', function(req,res) {
     res.send("Hello " + req.body.name);
 })
 
-app.get('/:username', function(req, res) {
-    console.log(req.params);
-    res.send('Hello ' + req.params.username);
-})
+app.get('/test', function(req, res){
+    var testObjects = [
+        {name: 'test1', value: 1},
+        {name: 'test2', value: 2},
+        {name: 'test3', value: 3}
+    ];
+
+    var message = "Ejs Test view is working!";
+
+    res.render('pages/test', {
+        message: message,
+        testObjects: testObjects
+    });
+});
+
+// app.get('/:username', function(req, res) {
+//     console.log(req.params);
+//     res.send('Hello ' + req.params.username);
+// })
 
 app.get('/rules', function(req,res){
     res.sendFile(__dirname + '/rules.html')
