@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <h1>Test Page</h1>
+        <p><%= message %></p>
+
+        <h2>Test Loop</h2>
+        <ul>
+            <% testObjects.forEach(function(obj) { %>
+                <li><%= obj.name %> - <%= obj.value %></li>
+                <% }) %>
+        </ul>
+    </body>
+</html>
