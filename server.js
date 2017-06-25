@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const test = require('./public/js/test')
 
 const app = express();
 
@@ -35,7 +36,7 @@ app.get('/test', function(req, res){
         {name: 'test3', value: 3}
     ];
 
-    var message = "Ejs Test view is working!";
+    var message = test.testString;
 
     res.render('pages/test', {
         message: message,
