@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const test = require('./public/js/test')
+const test = require('./public/js/test');
+const dealer = require('./public/js/dealer');
 
 const app = express();
 
@@ -12,22 +13,22 @@ app.listen(8080, function() {
     console.log("Listening on 8080");
 });
 
-app.get('/', function(req,res){
-    res.render('pages/index');
-});
+// app.get('/', function(req,res){
+//     res.render('pages/index');
+// });
 
-app.get('/game', function(req, res) {
-    res.sendFile(__dirname + "/game.html");
-});
+// app.get('/game', function(req, res) {
+//     res.sendFile(__dirname + "/game.html");
+// });
 
-app.get('/contact', function(req,res){
-    res.sendFile(__dirname + '/contact.html');
-});
+// app.get('/contact', function(req,res){
+//     res.sendFile(__dirname + '/contact.html');
+// });
 
-app.post('/contact', function(req,res) {
-    console.log(req.body);
-    res.send("Hello " + req.body.name);
-})
+// app.post('/contact', function(req,res) {
+//     console.log(req.body);
+//     res.send("Hello " + req.body.name);
+// })
 
 app.get('/test', function(req, res){
     var testObjects = [
@@ -37,10 +38,12 @@ app.get('/test', function(req, res){
     ];
 
     var message = test.testString;
+    var deck = dealer.deck;
 
     res.render('pages/test', {
         message: message,
-        testObjects: testObjects
+        testObjects: testObjects,
+        deck: deck
     });
 });
 
@@ -49,6 +52,6 @@ app.get('/test', function(req, res){
 //     res.send('Hello ' + req.params.username);
 // })
 
-app.get('/rules', function(req,res){
-    res.sendFile(__dirname + '/rules.html')
-})
+// app.get('/rules', function(req,res){
+//     res.sendFile(__dirname + '/rules.html')
+// })
