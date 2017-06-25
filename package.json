@@ -22,6 +22,7 @@
     "express": "^4.15.2"
   },
   "devDependencies": {
+    "ejs-lint": "^0.3.0",
     "gulp": "^3.9.1",
     "gulp-livereload": "^3.8.1",
     "gulp-nodemon": "^2.2.1",
