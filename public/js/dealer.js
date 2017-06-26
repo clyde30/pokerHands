@@ -1,20 +1,22 @@
 module.exports = {
-    deck: deck
+    deck: buildDeck()
 }
 
+// var deck = new Deck();
+
+// console.log("Object = " + deck);
 var deck = buildDeck();
 
 function buildDeck() {
-    var newDeck = [];
     var suitList = ["Hearts", "Clubs", "Spades", "Diamonds"];
-
+    var deck = [];
     for (var i = 0; i < suitList.length; i++) {
         for (var val = 2; val <= 14; val++) {
-            newDeck.push(new Card(val, suitList[i]));
+            var card = new Card(val, suitList[i]);
+            deck.push(card);
         }
     }
-
-    return newDeck;
+    return deck;
 }
 
 function Card(number, suit) {

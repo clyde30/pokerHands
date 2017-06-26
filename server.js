@@ -39,7 +39,7 @@ app.get('/test', function(req, res){
 
     var message = test.testString;
     var deck = dealer.deck;
-
+    
     res.render('pages/test', {
         message: message,
         testObjects: testObjects,

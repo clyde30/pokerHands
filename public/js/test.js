@@ -1,3 +1,9 @@
 module.exports = {
-    testString: "Test js is exporting correctly"
+    testString: testValue()
+}
+
+// var testString = testValue();
+
+function testValue() {
+    return "Test js is exporting correctly as a function";
 }
