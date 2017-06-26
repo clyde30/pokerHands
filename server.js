@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const test = require('./public/js/test');
 const dealer = require('./public/js/dealer');
 
 const app = express();
@@ -11,6 +10,15 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.listen(8080, function() {
     console.log("Listening on 8080");
+});
+
+app.get('/test', function(req, res){
+    var deck = dealer.shuffle(dealer.buildDeck);
+    // var deck = dealer.buildDeck;
+    
+    res.render('pages/test', {
+        deck: deck
+    });
 });
 
 // app.get('/', function(req,res){
@@ -30,22 +38,6 @@ app.listen(8080, function() {
 //     res.send("Hello " + req.body.name);
 // })
 
-app.get('/test', function(req, res){
-    var testObjects = [
-        {name: 'test1', value: 1},
-        {name: 'test2', value: 2},
-        {name: 'test3', value: 3}
-    ];
-
-    var message = test.testString;
-    var deck = dealer.deck;
-    
-    res.render('pages/test', {
-        message: message,
-        testObjects: testObjects,
-        deck: deck
-    });
-});
 
 // app.get('/:username', function(req, res) {
 //     console.log(req.params);

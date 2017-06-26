@@ -1,11 +1,7 @@
 module.exports = {
-    deck: buildDeck()
+    buildDeck: buildDeck(),
+    shuffle: shuffle
 }
-
-// var deck = new Deck();
-
-// console.log("Object = " + deck);
-var deck = buildDeck();
 
 function buildDeck() {
     var suitList = ["Hearts", "Clubs", "Spades", "Diamonds"];
@@ -17,6 +13,17 @@ function buildDeck() {
         }
     }
     return deck;
+}
+
+var shuffle = function(deck) {
+    while (0 < deck.length){
+		var shuffledDeck = [];
+        var randomNum = Math.round(Math.random()*(deck.length-1));
+		var card = deck[randomNum];
+		deck.splice(randomNum,1);
+		shuffledDeck.push(card);
+	}
+    return shuffledDeck;
 }
 
 function Card(number, suit) {
