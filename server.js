@@ -13,7 +13,7 @@ app.listen(8080, function() {
 });
 
 app.get('/test', function(req, res){
-    var deck = dealer.shuffle(dealer.buildDeck);
+    var deck = dealer.shuffle;
     // var deck = dealer.buildDeck;
     
     res.render('pages/test', {

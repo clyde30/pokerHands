@@ -1,6 +1,6 @@
 module.exports = {
     buildDeck: buildDeck(),
-    shuffle: shuffle
+    shuffle: shuffle()
 }
 
 function buildDeck() {
@@ -15,9 +15,10 @@ function buildDeck() {
     return deck;
 }
 
-var shuffle = function(deck) {
+function shuffle() {
+    var deck = buildDeck();
+    var shuffledDeck = [];
     while (0 < deck.length){
-		var shuffledDeck = [];
         var randomNum = Math.round(Math.random()*(deck.length-1));
 		var card = deck[randomNum];
 		deck.splice(randomNum,1);
