@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <h1>Test Page</h1>
+        <ul>
+            <% for(var i = 0; i<deck.length; i++) { %>
+                <li><%=deck[i].number %> of <%=deck[i].suit %></li>
+            <% } %>  
+        </ul>
+    </body>
+</html>
