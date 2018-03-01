@@ -1,5 +1,5 @@
-module.exports = getFaceCard;
-module.exports.pickCardImage = pickCardImage;
+// module.exports = getFaceCard;
+// module.exports.pickCardImage = pickCardImage;
 
 var pickCardImage = function (number, suit) {
 

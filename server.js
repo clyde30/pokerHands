@@ -21,13 +21,13 @@ app.get('/test', function(req, res){
     });
 });
 
-// app.get('/', function(req,res){
-//     res.render('pages/index');
-// });
+app.get('/', function(req,res){
+    res.render('pages/index');
+});
 
-// app.get('/game', function(req, res) {
-//     res.sendFile(__dirname + "/game.html");
-// });
+app.get('/game', function(req, res) {
+    res.sendFile(__dirname + "/game.html");
+});
 
 // app.get('/contact', function(req,res){
 //     res.sendFile(__dirname + '/contact.html');

@@ -12,7 +12,7 @@ angular.module('dealApp', [])
     };
 
     self.shuffle = function () {
-      dealer.shuffle;
+      shuffle();
       self.hand1 = [];
       self.hand2 = [];
       console.log("Shuffled");
