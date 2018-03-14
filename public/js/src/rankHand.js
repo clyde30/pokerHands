@@ -161,16 +161,34 @@ function rankPairs() {
 }
 
 function handName(rank) {
-  var str = "";
-  if (rank === 0) {str = "High Card"};
-  if (rank === 1) {str = "Pair"};
-  if (rank === 2) {str = "Two Pair"};
-  if (rank === 3) {str = "Set"};
-  if (rank === 4) {str = "Straight"};
-  if (rank === 5) {str = "Flush"};
-  if (rank === 6) {str = "Full House"};
-  if (rank === 7) {str = "Four of a Kind"};
-  if (rank === 8) {str = "Straight Flush"};
+  let value = "";
+  switch (rank) {
+    case 0: value = "High Card";
+    break;
 
-  return str;
+    case 1: value = "Pair";
+    break;
+
+    case 2: value = "Two Pair";
+    break;
+
+    case 3: value = "Set";
+    break;
+
+    case 4: value = "Straight";
+    break;
+
+    case 5: value = "Flush";
+    break;
+
+    case 6: value = "Full House";
+    break;
+
+    case 7: value = "Four of a Kind";
+    break;
+
+    case 8: value = "Straight Flush";
+    break;
+  }
+  return value;
 }
