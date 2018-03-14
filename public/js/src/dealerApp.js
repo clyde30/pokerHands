@@ -4,8 +4,8 @@ angular.module('dealApp', [])
     var self = this;
 
     self.dealHand = function (num) {
-      self.hand1 = runApp(num);
-      self.hand2 = runApp(num);
+      self.hand1 = dealHand(num);
+      self.hand2 = dealHand(num);
 
       self.winner = rankPlayers(self.hand1, self.hand2);
       console.log(self.winner);

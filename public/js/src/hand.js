@@ -9,12 +9,14 @@ function Hand(hand) {
 
 //deal hand
 function dealHand(numCards) {
-	var hand = [];
+	let cards = [];
 	for (var i = 0; i < numCards; i++) {
-		hand.push(dealCard());
+		cards.push(dealCard());
 	}
-	hand.sort(function (a,b){
+	cards.sort(function (a,b){
 		return a.number - b.number
 	})
+
+	let hand = new Hand(cards);
 	return hand;
 };
