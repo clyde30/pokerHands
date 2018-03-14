@@ -1,6 +1,7 @@
 module.exports = {
     buildDeck: buildDeck(),
-    shuffle: shuffle()
+    shuffle: shuffle(),
+    deal: dealCard(shuffle())
 }
 
 function buildDeck() {
@@ -30,4 +31,9 @@ function shuffle() {
 function Card(number, suit) {
     this.number = number;
     this.suit = suit;
+}
+
+function dealCard(deck) {
+    let card = deck.shift();
+    return card;
 }
