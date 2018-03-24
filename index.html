@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app = "dealApp">
+<head>
+	<title>Game</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="public/css/style.css">
+<link rel="stylesheet" type="text/css" ref="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body ng-controller = "MainCtrl as ctrl">
+	<div class = "container">
+	<div class = "title">
+		<h1>Card Dealer</h1>
+	</div>
+
+	<button ng-click = "ctrl.shuffle()">
+		Shuffle Deck </button>
+	<button ng-click = "ctrl.dealHand(5)" ng-click="showButton = !showButton">
+		Deal</button>
+	</br>
+	<div ng-show="showCards" class="row winnerBox">
+		<h2>{{ctrl.winner}}</h2>
+	</div>
+<div ng-show="showCards" class = "row cardContainer">
+	<h4>Computer</h4>
+	<span ng-repeat = "card in ctrl.hand1.cards">
+		<img ng-src = "public/images/cards/{{card.image}}" class="cardImage">
+	</span>
+</div>
+</div>
+
+<div class = "row cardContainer">
+	<h4>Human</h4>
+		<span ng-repeat="card in ctrl.hand2.cards">
+			<img  ng-src="public/images/cards/{{card.image}}" class="cardImage">
+		</span>
+</div>
+
+<button ng-click="showCards = !showCards">Show Cards</button>
+
+<script type="text/javascript" src="public/js/src/deal.js"></script>
+<script type="text/javascript" src="public/js/src/dealerApp.js"></script>
+
+</body>
+</html>
