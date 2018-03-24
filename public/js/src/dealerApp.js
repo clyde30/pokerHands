@@ -1,21 +1,27 @@
-angular.module('dealApp', [])
-
-  .controller('MainCtrl', [function() {
-    var self = this;
-
-    self.dealHand = function (num) {
-      self.hand1 = dealHand(num);
-      self.hand2 = dealHand(num);
-
-      self.winner = rankPlayers(self.hand1, self.hand2);
-      console.log(self.winner);
-    };
-
-    self.shuffle = function () {
+var app = new Vue( {
+  el: '#app',
+  data: {
+    message: 'Hello Vue'
+  },
+  methods: {
+    shuffle : function () {
       shuffle();
-      self.hand1 = [];
-      self.hand2 = [];
-      console.log("Shuffled");
-    };
+      this.hand1 = [];
+      this.hand2 = [];
+      console.log("Shuffling");
+    }
+  }
+})
 
-  }]);
+var app2 = new Vue({
+  el: '#app2',
+  methods: {
+    deal : function() {
+      this.hand1 = dealHand(5);
+      this.hand2 = dealHand(5);
+
+      this.winner = rankPlayers(this.hand1, this.hand2);
+      console.log(this.winner);
+    }
+  }
+})
