@@ -53,7 +53,7 @@ function card(number,suit) {
 	this.number = number;
 	this.suit = suit;
 	this.buildCard = getFaceCard(number) + suit;
-	this.image = pickCardImage(number, suit);
+	this.image = "public/images/cards/" + pickCardImage(number, suit);
 	this.showCard = getFaceCard(number);
 };
 

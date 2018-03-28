@@ -5,9 +5,9 @@ var app = new Vue( {
   },
   methods: {
     shuffle : function () {
-      shuffle();
       this.hand1 = [];
       this.hand2 = [];
+      shuffle();
       console.log("Shuffling");
     }
   }
@@ -15,6 +15,11 @@ var app = new Vue( {
 
 var app2 = new Vue({
   el: '#app2',
+  data: {
+    showCards: false,
+    hand1: this.hand1,
+    hand2: this.hand2
+  },
   methods: {
     deal : function() {
       this.hand1 = dealHand(5);
@@ -22,6 +27,7 @@ var app2 = new Vue({
 
       this.winner = rankPlayers(this.hand1, this.hand2);
       console.log(this.winner);
+      // console.log(this.hand1);
     }
   }
 })

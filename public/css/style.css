@@ -18,23 +18,25 @@ h4 {
 .cardImage:hover {
   width: 20%;
   height: auto;
+  margin: 0 5px;
 }
 .cardImage {
   width: 18%;
   height: auto;
-}
-.hiddenCard {
-  width: 18%;
-  height: auto;
-  background-color: blue;
+  margin: 0 5px;  
 }
 .winnerBox {
   background-color: red;
   color: white;
 }
-.chipBox {
+/* .hiddenCard {
+  width: 18%;
+  height: auto;
+  background-color: blue;
+} */
+/* .chipBox {
   background-color: white;
   height: 50px;
   width: 50px;
   margin: auto;
-}
+} */
