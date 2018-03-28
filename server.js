@@ -5,7 +5,7 @@ const dealer = require('./public/js/dealer');
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname));
 
 app.set('view engine', 'ejs');
 app.listen(8080, function() {
@@ -22,7 +22,8 @@ app.get('/test', function(req, res){
 });
 
 app.get('/', function(req,res){
-    res.render('pages/index');
+    // res.render('pages/index');
+    res.sendFile(__dirname + "/index.html")
 });
 
 app.get('/dealcard', function(req, res){
@@ -31,9 +32,9 @@ app.get('/dealcard', function(req, res){
     });
 });
 
-app.get('/game', function(req, res) {
-    res.sendFile(__dirname + "/game.html");
-});
+// app.get('/game', function(req, res) {
+//     res.sendFile(__dirname + "/game.html");
+// });
 
 // app.get('/contact', function(req,res){
 //     res.sendFile(__dirname + '/contact.html');
